@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lazaro John Msambazi - Back of Business Card</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf/0.9.2/html2pdf.bundle.js"></script>
+  <style>
+    .back {
+      width: 350px;
+      height: 200px;
+      display: grid;
+      font-family: 'Trebuchet MS', sans-serif;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      position: relative;
+    }
+    .cyan {
+      background-color: #00aaff;
+      grid-column: 1 / span 9;
+      grid-row: 1 / span 3;
+    }
+    .top.dots {
+      background: radial-gradient(#00aaff 20%, transparent 19%), radial-gradient(#00aaff 20%, transparent 19%);
+      background-size: 6px 6px;
+      background-position: 0 0, 3px 3px;
+      grid-column: 8 / span 6;
+      grid-row: 2 / span 3;
+    }
+    .personal-info {
+      grid-column: 2 / span 6;
+      grid-row: 5 / span 6;
+      color: #003f88;
+    }
+    .personal-info p {
+      font-size: 10px;
+    }
+    .personal-info p:first-of-type {
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .bottom.dots {
+      background: radial-gradient(#00aaff 20%, transparent 19%), radial-gradient(#00aaff 20%, transparent 19%);
+      background-size: 6px 6px;
+      background-position: 0 0, 3px 3px;
+      grid-column: 1 / span 12;
+      grid-row: 11 / span 2;
+    }
+    .lightblue {
+      background-color: #87cefa;
+      grid-column: 1 / span 12;
+      grid-row: 12 / span 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Back of the Card -->
+  <div id="back-card" class="back">
+      <div class="cyan"></div>
+      <div class="top dots"></div>
+      <div class="personal-info">
+        <p>Lazaro John Msambazi</p>
+        <p>Senior ICT Officer</p>
+        <p>Ministry of Communication and Information Technology</p>
+        <p>P.O. BOX 677</p>
+        <p>Dodoma, Tanzania</p>
+        <p>+255-784-742309</p>
+        <p>lazaro.msambazi@mawasiliano.go.tz</p>
+      </div>
+      <div class="bottom dots"></div>
+      <div class="lightblue"></div>
+  </div>
 
+  <script>
+    window.onload = function() {
+      // Capture the back of the card and download it as an image
+      html2canvas(document.getElementById("back-card")).then(canvas => {
+        const image = canvas.toDataURL("image/png");
+        const link = document.createElement("a");
+        link.href = image;
+        link.download = "business-card-back.png";
+        link.click();
+      });
+    };
+  </script>
+</body>
+</html>
