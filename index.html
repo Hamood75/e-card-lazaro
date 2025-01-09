@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lazaro John Msambazi - E-Business Card</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf/0.9.2/html2pdf.bundle.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
     * {
@@ -109,11 +112,19 @@
         Mtumba Government City, Ujenzi Street<br>
         P.O. BOX 677, Dodoma, Tanzania
       </p>
+      <button id="download" class="cta">Download</button>
     </div>
   </main>
 
   <footer>
     &copy; 2024 Ministry of Communication and Information Technology, Tanzania
   </footer>
+
+  <script>
+    document.getElementById('download').addEventListener('click', () => {
+      // Redirect to the new page that displays the back of the card
+      window.location.href = 'back-card.html';
+    });
+  </script>
 </body>
 </html>
